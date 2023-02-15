@@ -7,7 +7,7 @@ import { Dimensions } from 'react-native';
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
 
-export default function QRScan2() {
+export default function QRScan2({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
 
@@ -45,7 +45,7 @@ export default function QRScan2() {
                     style={styles.qr}
                     source={require('../assets/QRanimation.gif')}
                 />
-                <Text onPress={() => alert("Navigate back from here")} style={styles.cancel}>
+                <Text onPress={() => navigation.navigate('Home')} style={styles.cancel}>
                     Cancel
                 </Text>
             </BarCodeScanner>

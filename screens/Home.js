@@ -5,7 +5,10 @@ const Home = () => {
     return (
 
         <View style={styles.container}>
-            <Text style={styles.text}>IntelliTrain</Text>
+            <Text style={styles.text}>IntelliTrain SLR</Text>
+            <Image
+                source={require('../assets/railway.png')}
+            />
         </View>
     );
 }

@@ -19,7 +19,7 @@ export default function App() {
             iconName = focused ? 'home-outline' : 'home-outline';
           } else if (route.name === 'QRScan') {
             iconName = focused ? 'qr-code-outline' : 'qr-code-outline';
-          } else if (route.name === 'Contact') {
+          } else if (route.name === 'QRScan2') {
             iconName = focused ? 'megaphone-outline' : 'megaphone-outline';
           }
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -37,6 +37,8 @@ export default function App() {
         />
         <Tab.Screen name="QRScan" component={QRScan}
         />
+
+
       </Tab.Navigator>
     </NavigationContainer>
   );

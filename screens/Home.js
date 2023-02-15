@@ -6,10 +6,6 @@ const Home = () => {
 
         <View style={styles.container}>
             <Text style={styles.text}>IntelliTrain</Text>
-            <Image
-                source={require('../assets/railway.png')}
-            />
-
         </View>
     );
 }

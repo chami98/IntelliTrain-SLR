@@ -7,7 +7,7 @@ import { Dimensions } from 'react-native';
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
 
-export default function QRScan2({ navigation }) {
+export default function QRScan({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
 
@@ -20,7 +20,7 @@ export default function QRScan2({ navigation }) {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+        alert(`${data} has been scanned!`);
     };
 
     if (hasPermission === null) {

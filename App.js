@@ -28,8 +28,14 @@ export default function App() {
         headerShown: false
       })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
+          "tabBarActiveTintColor": "tomato",
+          "tabBarInactiveTintColor": "gray",
+          "tabBarStyle": [
+            {
+              "display": "flex"
+            },
+            null
+          ]
         }}
 
       >

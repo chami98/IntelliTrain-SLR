@@ -40,8 +40,12 @@ export default function AppTabNavigator() {
         >
             <Tab.Screen name="Home" component={Home}
             />
-            <Tab.Screen name="QRScan" component={QRScan}
+            <Tab.Screen
+                name="QRScan"
+                component={QRScan}
+                initialParams={{ scanned: 'false' }}
             />
+
         </Tab.Navigator>
 
     );

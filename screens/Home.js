@@ -27,7 +27,7 @@ const Home = ({ route, navigation }) => {
                         <Ionicons name="notifications-outline" size={60} color='#3969b7' />
                         <Text style={styles.buttonText}> Send Notifications</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', { screen: 'LiveUpdates' })}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', { screen: 'SendLiveUpdates' })}>
                         <Ionicons name="pulse-outline" size={60} color='#3969b7' />
                         <Text style={styles.buttonText}>Send Live Updates</Text>
                     </TouchableOpacity>

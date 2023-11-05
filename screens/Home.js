@@ -23,9 +23,9 @@ const Home = ({ route, navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.row}>
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', { screen: 'News' })}>
-                        <Ionicons name="notifications-outline" size={60} color='#3969b7' />
-                        <Text style={styles.buttonText}> Send Notifications</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', { screen: 'UpdateTime' })}>
+                        <Ionicons name="time-outline" size={60} color='#3969b7' />
+                        <Text style={styles.buttonText}> Update Time</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', { screen: 'SendLiveUpdates' })}>
                         <Ionicons name="pulse-outline" size={60} color='#3969b7' />

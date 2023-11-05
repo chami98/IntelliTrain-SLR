@@ -100,6 +100,9 @@ const TrackTrain = ({ route, navigation }) => {
                     <Text style={styles.buttonText}>Sagarika / සාගරිකා</Text>
                 </View>
             </TouchableOpacity>
+            <View style={styles.footer}>
+                <Text style={styles.footerText}>© {new Date().getFullYear()} Chamikara Mendis</Text>
+            </View>
         </View>
     )
 }
@@ -151,5 +154,16 @@ const styles = StyleSheet.create({
     buttonContent: {
         flex: 1, // Allow text to expand vertically
         alignItems: 'center', // Center text vertically
+    },
+    footer: {
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderTopWidth: 1,
+        borderTopColor: '#ddd',
+    },
+    footerText: {
+        fontSize: 16,
+        color: '#777',
     },
 });

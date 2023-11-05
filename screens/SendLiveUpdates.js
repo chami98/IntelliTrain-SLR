@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, ToastAndroid, Image, Text, ScrollView } from 'react-native'; // Import ToastAndroid
+import { View, TextInput, Button, StyleSheet, ToastAndroid, Image, Text, ScrollView, Touchable, TouchableOpacity } from 'react-native'; // Import ToastAndroid
 import { Picker } from '@react-native-picker/picker';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 
@@ -53,6 +53,7 @@ const SendLiveUpdates = () => {
                     selectedValue={trainName}
                     onValueChange={(itemValue, itemIndex) => setTrainName(itemValue)}
                 >
+                    <Picker.Item label="Select Train" value="" />
                     <Picker.Item label="Udarata Menike | උඩරට මැණිකේ" value="Udarata Menike" />
                     <Picker.Item label="Yal Devi | යාල් දේවි" value="Yal Devi" />
                     <Picker.Item label="Galu Kumari | ගාලු කුමාරි" value="Galu Kumari" />
@@ -76,10 +77,19 @@ const SendLiveUpdates = () => {
                     onChangeText={(text) => setTrainDetails(text)}
                 />
                 <View style={styles.buttonContainer}>
-                    <Button title="Submit Update" onPress={handleAddTrainUpdate} />
+                    <TouchableOpacity
+                        onPress={handleAddTrainUpdate}
+                        style={styles.submitButton}
+                    >
+                        <Text style={styles.buttonText}>Submit Update</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
+            <View style={styles.footer}>
+                <Text style={styles.footerText}>© {new Date().getFullYear()} Chamikara Mendis</Text>
+            </View>
         </ScrollView>
+
     );
 };
 
@@ -97,7 +107,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     input: {
-        height: 40,
+        height: 50,
         borderColor: '#ddd',
         borderWidth: 1,
         marginBottom: 20,
@@ -105,11 +115,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#fff',
     },
-    buttonContainer: {
-        marginTop: 20,
-        backgroundColor: '#007BFF',
-        borderRadius: 5,
-    },
+
     loader: {
         width: 380,
         height: 380,
@@ -119,8 +125,33 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
         marginBottom: 20,
+        marginTop: 15,
         color: '#007BFF',
-    }
+    },
+    submitButton: {
+        height: 50,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        marginBottom: 20,
+        backgroundColor: '#3969b7', // Changed color to a shade of orange
+    },
+    buttonText: {
+        color: '#FFF',
+        fontSize: 16,
+    },
+    footer: {
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderTopWidth: 1,
+        borderTopColor: '#ddd',
+    },
+    footerText: {
+        fontSize: 16,
+        color: '#777',
+    },
 });
 
 export default SendLiveUpdates;

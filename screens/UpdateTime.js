@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 20,
         color: '#007BFF',
+        marginTop: 10,
     },
     loader: {
         width: 330,

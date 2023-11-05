@@ -20,7 +20,7 @@ export default function QRScan({ navigation }) {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`${data} has been scanned!`);
+        alert(`${data} `);
     };
 
     if (hasPermission === null) {

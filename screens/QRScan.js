@@ -57,44 +57,51 @@ export default function QRScan({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    // Main container style
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: Constants.statusBarHeight,
-        backgroundColor: '#ecf0f1',
-        padding: 8,
+        flex: 1, // Take up all available space
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        paddingTop: Constants.statusBarHeight, // Add padding at the top equal to the status bar height
+        backgroundColor: '#ecf0f1', // Light gray background
+        padding: 8, // Add padding on all sides
     },
+    // QR code style
     qr: {
-        marginTop: '20%',
-        marginBottom: '20%',
-        width: qrSize,
-        height: qrSize,
+        marginTop: '20%', // Margin at the top
+        marginBottom: '20%', // Margin at the bottom
+        width: qrSize, // Set width
+        height: qrSize, // Set height
     },
+    // Description text style
     description: {
-        fontSize: width * 0.09,
-        marginTop: '10%',
-        textAlign: 'center',
-        width: '70%',
-        color: 'white',
+        fontSize: width * 0.09, // Set font size
+        marginTop: '10%', // Margin at the top
+        textAlign: 'center', // Center text
+        width: '70%', // Set width
+        color: 'white', // White text color
     },
+    // Cancel text style
     cancel: {
-        fontSize: width * 0.05,
-        textAlign: 'center',
-        width: '70%',
-        color: 'white',
-    }, appButtonContainer: {
-        elevation: 8,
-        backgroundColor: "#009688",
-        borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12
+        fontSize: width * 0.05, // Set font size
+        textAlign: 'center', // Center text
+        width: '70%', // Set width
+        color: 'white', // White text color
     },
+    // Button container style
+    appButtonContainer: {
+        elevation: 8, // Set elevation
+        backgroundColor: "#009688", // Set background color
+        borderRadius: 10, // Set border radius
+        paddingVertical: 10, // Set vertical padding
+        paddingHorizontal: 12 // Set horizontal padding
+    },
+    // Button text style
     appButtonText: {
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase"
+        fontSize: 18, // Set font size
+        color: "#fff", // Set text color
+        fontWeight: "bold", // Set font weight
+        alignSelf: "center", // Align text to the center
+        textTransform: "uppercase" // Transform text to uppercase
     }
 });

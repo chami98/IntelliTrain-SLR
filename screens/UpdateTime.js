@@ -56,28 +56,28 @@ const UpdateTime = () => {
                 onValueChange={(itemValue, itemIndex) => setStationName(itemValue)}
             >
                 <Picker.Item label="Select Station" value="" />
+                <Picker.Item label="Maradana (මරදාන)" value="Kandy" />
                 <Picker.Item label="Colombo Fort (කොළඹ කොටුව)" value="Colombo Fort" />
-                <Picker.Item label="Kandy (මහනුවර)" value="Kandy" />
-                <Picker.Item label="Galle (ගාල්ල)" value="Galle" />
-                <Picker.Item label="Anuradhapura (අනුරාධපුර)" value="Anuradhapura" />
-                <Picker.Item label="Ella (ඇල්ල)" value="Ella" />
-                <Picker.Item label="Jaffna (යාපනකට)" value="Jaffna" />
-                <Picker.Item label="Badulla (බදුල්ල)" value="Badulla" />
-                <Picker.Item label="Matara (මාතර)" value="Matara" />
-                <Picker.Item label="Polgahawela (පොල්ගහවෙල)" value="Polgahawela" />
-                <Picker.Item label="Hikkaduwa (හික්කඩුව)" value="Hikkaduwa" />
-                <Picker.Item label="Nuwara Eliya (නුවර එළිය)" value="Nuwara Eliya" />
-                <Picker.Item label="Kurunegala (කුරුණෑගල)" value="Kurunegala" />
-                <Picker.Item label="Bentota (බෙන්ටොට)" value="Bentota" />
-                <Picker.Item label="Matale (මාතලේ)" value="Matale" />
-                <Picker.Item label="Gampaha (ගම්පහ)" value="Gampaha" />
-                <Picker.Item label="Avissawella (අවිසාවෙල්ල)" value="Avissawella" />
-                <Picker.Item label="Rambukkana (රඹුක්කන)" value="Rambukkana" />
+                <Picker.Item label="Kollupitiya (කොල්ලුපිටිය)" value="Galle" />
+                <Picker.Item label="Bambalapitiya (බම්බලපිටිය)" value="Anuradhapura" />
+                <Picker.Item label="Moratuwa (මොරටුව)" value="Ella" />
+                {/* <Picker.Item label="Jaffna (යාපනකට)" value="Jaffna" /> */}
+                <Picker.Item label="Panadura (පානදුර)" value="Badulla" />
+                <Picker.Item label="Kalutara (කලුතර)" value="Matara" />
+                <Picker.Item label="Payagala (පයාගල)" value="Polgahawela" />
+                <Picker.Item label="Beruwala (බේරුවල)" value="Hikkaduwa" />
+                <Picker.Item label="Aluthgama (අලුත්ගම)" value="Nuwara Eliya" />
+                <Picker.Item label="Balapitiya (බලපිටිය)" value="Kurunegala" />
+                <Picker.Item label="Ambalangoda (අම්බලන්ගොඩ)" value="Bentota" />
+                <Picker.Item label="Hikkaduwa (හික්කඩුව)" value="Matale" />
+                <Picker.Item label="Galle (ගාල්ල)" value="Gampaha" />
+                {/* <Picker.Item label="Avissawella (අවිසාවෙල්ල)" value="Avissawella" /> */}
+                {/* <Picker.Item label="Rambukkana (රඹුක්කන)" value="Rambukkana" />
                 <Picker.Item label="Watawala (වටවල)" value="Watawala" />
                 <Picker.Item label="Kotagala (කොටගල)" value="Kotagala" />
                 <Picker.Item label="Kadugannawa (කදුගන්නාව)" value="Kadugannawa" />
                 <Picker.Item label="Kotikawatta (කොටිකාවත්ත)" value="Kotikawatta" />
-                <Picker.Item label="Pettah (පෙටා)" value="Pettah" />
+                <Picker.Item label="Pettah (පෙටා)" value="Pettah" /> */}
                 {/* Add other station options here */}
             </Picker>
 

@@ -58,52 +58,58 @@ const SendNews = () => {
 };
 
 const styles = StyleSheet.create({
+    // Container style
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f1f1f1',
-        padding: 20,
+        flex: 1, // Take up all available space
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        backgroundColor: '#f1f1f1', // Light gray background
+        padding: 20, // Add padding on all sides
     },
+    // Title style
     title: {
-        color: '#3969b7',
-        fontWeight: 'bold',
-        fontSize: 30,
-        marginBottom: 20,
+        color: '#3969b7', // Blue text color
+        fontWeight: 'bold', // Bold text
+        fontSize: 30, // Large font size
+        marginBottom: 20, // Add margin at the bottom
     },
+    // Input field style
     input: {
-        width: '100%',
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        paddingLeft: 10,
-        marginBottom: 20,
-        fontSize: 16,
-        backgroundColor: '#fff',
-        borderRadius: 15,
+        width: '100%', // Take up all available width
+        height: 40, // Fixed height
+        borderColor: '#ccc', // Gray border color
+        borderWidth: 1, // Border width
+        paddingLeft: 10, // Add padding on the left
+        marginBottom: 20, // Add margin at the bottom
+        fontSize: 16, // Medium font size
+        backgroundColor: '#fff', // White background
+        borderRadius: 15, // Rounded corners
     },
+    // Text area style
     textArea: {
-        width: '100%',
-        height: 120,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        paddingLeft: 10,
-        marginBottom: 20,
-        fontSize: 16,
-        backgroundColor: '#fff',
-        borderRadius: 15,
+        width: '100%', // Take up all available width
+        height: 120, // Fixed height
+        borderColor: '#ccc', // Gray border color
+        borderWidth: 1, // Border width
+        paddingLeft: 10, // Add padding on the left
+        marginBottom: 20, // Add margin at the bottom
+        fontSize: 16, // Medium font size
+        backgroundColor: '#fff', // White background
+        borderRadius: 15, // Rounded corners
     },
+    // Send button style
     sendButton: {
-        backgroundColor: '#3969b7',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingRight: 80,
-        paddingLeft: 80,
-        borderRadius: 15,
+        backgroundColor: '#3969b7', // Blue background
+        paddingTop: 10, // Add padding at the top
+        paddingBottom: 10, // Add padding at the bottom
+        paddingRight: 80, // Add padding on the right
+        paddingLeft: 80, // Add padding on the left
+        borderRadius: 15, // Rounded corners
     },
+    // Button text style
     buttonText: {
-        color: "white",
-        fontSize: 18
+        color: "white", // White text color
+        fontSize: 18 // Large font size
     },
 });
 

@@ -94,63 +94,71 @@ const SendLiveUpdates = () => {
 };
 
 const styles = StyleSheet.create({
+    // Main container style
     container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#f5f5f5',
+        flex: 1, // Take up all available space
+        padding: 20, // Add padding on all sides
+        backgroundColor: '#f5f5f5', // Light gray background
     },
+    // Picker style
     picker: {
-        marginBottom: 20,
-        borderWidth: 1,
-        borderColor: '#ddd',
-        borderRadius: 10,
-        backgroundColor: '#fff',
+        marginBottom: 20, // Margin at the bottom
+        borderWidth: 1, // Border width
+        borderColor: '#ddd', // Gray border color
+        borderRadius: 10, // Rounded corners
+        backgroundColor: '#fff', // White background
     },
+    // Input field style
     input: {
-        height: 50,
-        borderColor: '#ddd',
-        borderWidth: 1,
-        marginBottom: 20,
-        paddingLeft: 10,
-        borderRadius: 10,
-        backgroundColor: '#fff',
+        height: 50, // Fixed height
+        borderColor: '#ddd', // Gray border color
+        borderWidth: 1, // Border width
+        marginBottom: 20, // Margin at the bottom
+        paddingLeft: 10, // Padding on the left
+        borderRadius: 10, // Rounded corners
+        backgroundColor: '#fff', // White background
     },
-
+    // Loader style
     loader: {
-        width: 380,
-        height: 380,
-        alignSelf: 'center',
+        width: 380, // Fixed width
+        height: 380, // Fixed height
+        alignSelf: 'center', // Center horizontally
     },
+    // Title style
     title: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        marginTop: 15,
-        color: '#007BFF',
+        fontSize: 25, // Large font size
+        fontWeight: 'bold', // Bold text
+        marginBottom: 20, // Margin at the bottom
+        marginTop: 15, // Margin at the top
+        color: '#007BFF', // Blue text color
     },
+    // Submit button style
     submitButton: {
-        height: 50,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginBottom: 20,
-        backgroundColor: '#3969b7', // Changed color to a shade of orange
+        height: 50, // Fixed height
+        width: '100%', // Take up all available width
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderRadius: 10, // Rounded corners
+        marginBottom: 20, // Margin at the bottom
+        backgroundColor: '#3969b7', // Blue background
     },
+    // Button text style
     buttonText: {
-        color: '#FFF',
-        fontSize: 16,
+        color: '#FFF', // White text color
+        fontSize: 16, // Medium font size
     },
+    // Footer style
     footer: {
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopWidth: 1,
-        borderTopColor: '#ddd',
+        padding: 10, // Add padding on all sides
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderTopWidth: 1, // Border width at the top
+        borderTopColor: '#ddd', // Gray border color at the top
     },
+    // Footer text style
     footerText: {
-        fontSize: 16,
-        color: '#777',
+        fontSize: 16, // Medium font size
+        color: '#777', // Gray text color
     },
 });
 

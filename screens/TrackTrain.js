@@ -109,61 +109,68 @@ const TrackTrain = ({ route, navigation }) => {
 
 export default TrackTrain
 const styles = StyleSheet.create({
+    // Main container style
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f2f2f2',
+        flex: 1, // Take up all available space
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        backgroundColor: '#f2f2f2', // Light gray background
     },
-
+    // Button style
     button: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        padding: 20,
-        shadowColor: '#000',
+        flexDirection: 'row', // Arrange children in a row
+        alignItems: 'center', // Center children vertically
+        justifyContent: 'center', // Center children horizontally
+        backgroundColor: '#fff', // White background
+        borderRadius: 10, // Rounded corners
+        padding: 20, // Add padding on all sides
+        shadowColor: '#000', // Black shadow
         shadowOffset: {
-            width: 0,
-            height: 2,
+            width: 0, // Shadow width
+            height: 2, // Shadow height
         },
-        shadowOpacity: 0.2,
-        shadowRadius: 3.84,
-        elevation: 5,
-        width: '80%',
-        marginVertical: 10,
-        borderWidth: 1,
-        borderColor: '#ddd',
+        shadowOpacity: 0.2, // Shadow opacity
+        shadowRadius: 3.84, // Shadow radius
+        elevation: 5, // Elevation (for Android)
+        width: '80%', // Take up 80% of the available width
+        marginVertical: 10, // Vertical margin
+        borderWidth: 1, // Border width
+        borderColor: '#ddd', // Gray border color
     },
+    // Button text style
     buttonText: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: '#3969b7',
-        textAlign: 'center',
+        fontSize: 16, // Medium font size
+        fontWeight: 'bold', // Bold text
+        color: '#3969b7', // Blue text color
+        textAlign: 'center', // Center text
     },
+    // Text style
     text: {
-        fontSize: 24,
-        color: '#2ecc71',
-        fontWeight: 'bold',
-        marginBottom: 20,
+        fontSize: 24, // Large font size
+        color: '#2ecc71', // Green text color
+        fontWeight: 'bold', // Bold text
+        marginBottom: 20, // Margin at the bottom
     },
+    // Icon style
     icon: {
-        marginRight: 1,
+        marginRight: 1, // Right margin
     },
+    // Button content style
     buttonContent: {
-        flex: 1, // Allow text to expand vertically
-        alignItems: 'center', // Center text vertically
+        flex: 1, // Take up all available space
+        alignItems: 'center', // Center children horizontally
     },
+    // Footer style
     footer: {
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopWidth: 1,
-        borderTopColor: '#ddd',
+        padding: 10, // Add padding on all sides
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderTopWidth: 1, // Border width at the top
+        borderTopColor: '#ddd', // Gray border color at the top
     },
+    // Footer text style
     footerText: {
-        fontSize: 16,
-        color: '#777',
+        fontSize: 16, // Medium font size
+        color: '#777', // Gray text color
     },
 });

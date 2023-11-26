@@ -48,22 +48,26 @@ export default function MapContainer({ route }) {
 }
 
 const styles = StyleSheet.create({
+    // Main container style
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 1, // Take up all available space
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
     },
+    // Text style
     text: {
-        color: '#3969b7',
-        fontWeight: 'bold',
-        fontSize: 25
+        color: '#3969b7', // Blue text color
+        fontWeight: 'bold', // Bold text
+        fontSize: 25, // Large font size
     },
+    // Map style
     map: {
-        flex: 1,
-        width: '100%',
-    }, customMarkerIcon: {
-        width: 45,
-        height: 45,
+        flex: 1, // Take up all available space
+        width: '100%', // Take up all available width
     },
-
+    // Custom marker icon style
+    customMarkerIcon: {
+        width: 45, // Fixed width
+        height: 45, // Fixed height
+    },
 })

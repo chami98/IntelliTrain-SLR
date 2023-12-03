@@ -20,7 +20,44 @@ export default function QRScan({ navigation }) {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`${data} `);
+        // alert(`${data} `);
+
+        if (data == "ghduqdph_vwdnhvwf") {
+            alert(`Departed Successfully`);
+            fetch(`http://192.168.196.186:5000/on`)
+                .then((response) => {
+                    // console.log(response);
+
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
+        if (data == "ghduqdph_glphwhuv") {
+            alert(`Insufficient Balance to Depart`);
+            fetch(`http://192.168.196.186:5000/redLED`)
+                .then((response) => {
+                    // console.log(response);
+
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+
+        else if (data == "dyuldylphqjlvdwp") {
+            alert(`Arrived Successfully`);
+            fetch(`http://192.168.196.186:5000/on`)
+                .then((response) => {
+                    // console.log(response);
+                })
+                .catch((error) => {
+                    // console.error(error);
+                });
+        }
+
+
     };
 
     if (hasPermission === null) {

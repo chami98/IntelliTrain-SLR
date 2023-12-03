@@ -135,66 +135,75 @@ const UpdateTime = () => {
 // ... (rest of the code remains the same)
 
 const styles = StyleSheet.create({
+    // Main container style
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 20,
-        backgroundColor: '#F5F5F5',
+        flex: 1, // Take up all available space
+        justifyContent: 'center', // Center children vertically
+        padding: 20, // Add padding on all sides
+        backgroundColor: '#F5F5F5', // Light gray background
     },
+    // Picker style
     picker: {
-        height: 50,
-        width: '100%',
-        borderColor: '#007BFF',
-        borderWidth: 1,
-        borderRadius: 10,
-        marginBottom: 20,
-        backgroundColor: '#FFF',
+        height: 50, // Fixed height
+        width: '100%', // Take up all available width
+        borderColor: '#007BFF', // Blue border color
+        borderWidth: 1, // Border width
+        borderRadius: 10, // Rounded corners
+        marginBottom: 20, // Margin at the bottom
+        backgroundColor: '#FFF', // White background
     },
+    // Button style
     button: {
-        height: 50,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginBottom: 10,
-        backgroundColor: '#4CAF50', // Changed color to a shade of green
+        height: 50, // Fixed height
+        width: '100%', // Take up all available width
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderRadius: 10, // Rounded corners
+        marginBottom: 10, // Margin at the bottom
+        backgroundColor: '#4CAF50', // Green background
     },
+    // Button text style
     buttonText: {
-        color: '#FFF',
-        fontSize: 16,
+        color: '#FFF', // White text color
+        fontSize: 16, // Medium font size
     },
+    // Submit button style
     submitButton: {
-        height: 50,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginBottom: 20,
-        backgroundColor: '#3969b7', // Changed color to a shade of orange
+        height: 50, // Fixed height
+        width: '100%', // Take up all available width
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderRadius: 10, // Rounded corners
+        marginBottom: 20, // Margin at the bottom
+        backgroundColor: '#3969b7', // Blue background
     },
+    // Title style
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        color: '#007BFF',
-        marginTop: 10,
+        fontSize: 24, // Large font size
+        fontWeight: 'bold', // Bold text
+        marginBottom: 20, // Margin at the bottom
+        color: '#007BFF', // Blue text color
+        marginTop: 10, // Margin at the top
     },
+    // Loader style
     loader: {
-        width: 330,
-        height: 330,
-        alignSelf: 'center',
-        marginBottom: 30
+        width: 330, // Fixed width
+        height: 330, // Fixed height
+        alignSelf: 'center', // Center horizontally
+        marginBottom: 30 // Margin at the bottom
     },
+    // Footer style
     footer: {
-        padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopWidth: 1,
-        borderTopColor: '#ddd',
+        padding: 10, // Add padding on all sides
+        justifyContent: 'center', // Center children vertically
+        alignItems: 'center', // Center children horizontally
+        borderTopWidth: 1, // Border width at the top
+        borderTopColor: '#ddd', // Gray border color at the top
     },
+    // Footer text style
     footerText: {
-        fontSize: 16,
-        color: '#777',
+        fontSize: 16, // Medium font size
+        color: '#777', // Gray text color
     },
 });
 

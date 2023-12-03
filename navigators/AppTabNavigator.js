@@ -7,25 +7,32 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function AppTabNavigator() {
 
+    // Create a bottom tab navigator
     const Tab = createBottomTabNavigator();
 
     return (
-
-        <Tab.Navigator screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
-                if (route.name === 'Home') {
-                    iconName = focused ? 'home-outline' : 'home-outline';
-                } else if (route.name === 'QRScan') {
-                    iconName = focused ? 'qr-code-outline' : 'qr-code-outline';
-                } else if (route.name === 'QRScan2') {
-                    iconName = focused ? 'megaphone-outline' : 'megaphone-outline';
-                }
-                return <Ionicons name={iconName} size={size} color={color} />;
-            },
-
-            headerShown: false
-        })}
+        // Define the tab navigator
+        <Tab.Navigator
+            // Set the screen options
+            screenOptions={({ route }) => ({
+                // Define the tab bar icon
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+                    // Set the icon based on the route name
+                    if (route.name === 'Home') {
+                        iconName = focused ? 'home-outline' : 'home-outline';
+                    } else if (route.name === 'QRScan') {
+                        iconName = focused ? 'qr-code-outline' : 'qr-code-outline';
+                    } else if (route.name === 'QRScan2') {
+                        iconName = focused ? 'megaphone-outline' : 'megaphone-outline';
+                    }
+                    // Return the icon component
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                // Hide the header
+                headerShown: false
+            })}
+            // Set the tab bar options
             tabBarOptions={{
                 "tabBarActiveTintColor": "tomato",
                 "tabBarInactiveTintColor": "gray",
@@ -36,10 +43,11 @@ export default function AppTabNavigator() {
                     null
                 ]
             }}
-
         >
+            // Define the Home screen
             <Tab.Screen name="Home" component={Home}
             />
+            // Define the QRScan screen with initial params
             <Tab.Screen
                 name="QRScan"
                 component={QRScan}
@@ -50,4 +58,3 @@ export default function AppTabNavigator() {
 
     );
 }
-

@@ -8,25 +8,20 @@ import Modal from 'react-native-modal';
 
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
-const nodeMCUIP = 'http://192.168.126.186:5000';
+const nodeMCUIP = 'http://192.168.14.186:5000';
 
-const CustomAlert = ({ isVisible, title, message, onClose, icon }) => {
-    const alertButtonStyle = title === 'Insufficient Balance' || 'Invalid QR Code' ? { ...styles.alertButton, backgroundColor: '#ff0000' } : styles.alertButton;
-    const iconColor = title === 'Insufficient Balance' || 'Invalid QR Code' ? '#ff0000' : '#3969b7';
-
-    return (
-        <Modal isVisible={isVisible}>
-            <View style={styles.alertContainer}>
-                <Icon name={icon || 'info-circle'} size={50} color={iconColor} />
-                <Text style={styles.alertTitle}>{title}</Text>
-                <Text style={styles.alertMessage}>{message}</Text>
-                <TouchableOpacity onPress={onClose} style={alertButtonStyle}>
-                    <Text style={styles.alertButtonText}>Tap to Scan Again</Text>
-                </TouchableOpacity>
-            </View>
-        </Modal>
-    );
-};
+const CustomAlert = ({ isVisible, title, message, onClose, icon }) => (
+    <Modal isVisible={isVisible}>
+        <View style={styles.alertContainer}>
+            <Icon name={icon || 'info-circle'} size={50} color={title === 'Insufficient Balance' ? '#ff0000' : (title === 'Invalid QR Code' ? '#ffcc00' : (title === 'Arrival Confirmed' ? '#009688' : '#3969b7'))} />
+            <Text style={styles.alertTitle}>{title}</Text>
+            <Text style={styles.alertMessage}>{message}</Text>
+            <TouchableOpacity onPress={onClose} style={{ ...styles.alertButton, backgroundColor: title === 'Insufficient Balance' ? '#ff0000' : (title === 'Invalid QR Code' ? '#ffcc00' : (title === 'Arrival Confirmed' ? '#009688' : '#3969b7')) }}>
+                <Text style={styles.alertButtonText}>Tap to Scan Again</Text>
+            </TouchableOpacity>
+        </View>
+    </Modal>
+);
 
 export default function QRScan({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);

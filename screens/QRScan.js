@@ -1,15 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import Constants from 'expo-constants';
 import { Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Modal from 'react-native-modal';
 
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
+const nodeMCUIP = 'http://192.168.126.186:5000';
+
+const CustomAlert = ({ isVisible, title, message, onClose, icon }) => (
+    <Modal isVisible={isVisible}>
+        <View style={styles.alertContainer}>
+            <Icon name={icon || 'info-circle'} size={50} color="#3969b7" />
+            <Text style={styles.alertTitle}>{title}</Text>
+            <Text style={styles.alertMessage}>{message}</Text>
+            <TouchableOpacity onPress={onClose} style={styles.alertButton}>
+                <Text style={styles.alertButtonText}>Tap to Scan Again</Text>
+            </TouchableOpacity>
+        </View>
+    </Modal>
+);
 
 export default function QRScan({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertData, setAlertData] = useState({});
 
     useEffect(() => {
         (async () => {
@@ -18,46 +36,59 @@ export default function QRScan({ navigation }) {
         })();
     }, []);
 
-    const handleBarCodeScanned = ({ type, data }) => {
+    const handleBarCodeScanned = ({ data }) => {
         setScanned(true);
-        // alert(`${data} `);
 
-        if (data == "ghduqdph_vwdnhvwf") {
-            alert(`Departed Successfully`);
-            fetch(`http://192.168.196.186:5000/on`)
+        if (data === "ghduqdph_vwdnhvwf") {
+            setAlertData({
+                title: 'Departure Successful',
+                message: 'You have successfully departed. Have a safe journey!',
+                icon: 'check-circle',
+            });
+
+            fetch(`${nodeMCUIP}/on`)
                 .then((response) => {
-                    // console.log(response);
-
+                    // Handle the response as needed
                 })
                 .catch((error) => {
                     console.error(error);
                 });
-        }
+        } else if (data === "ghduqdph_glphwhuv") {
+            setAlertData({
+                title: 'Insufficient Balance',
+                message: 'Passenger has not enough balance to depart.',
+                icon: 'exclamation-circle',
+            });
 
-        if (data == "ghduqdph_glphwhuv") {
-            alert(`Insufficient Balance to Depart`);
-            fetch(`http://192.168.196.186:5000/redLED`)
+            fetch(`${nodeMCUIP}/redLED`)
                 .then((response) => {
-                    // console.log(response);
-
+                    // Handle the response as needed
                 })
                 .catch((error) => {
                     console.error(error);
                 });
-        }
+        } else if (data === "dyuldylphqjlvdwp") {
+            setAlertData({
+                title: 'Arrival Confirmed',
+                message: 'You have successfully arrived at your destination. Welcome!',
+                icon: 'info-circle',
+            });
 
-        else if (data == "dyuldylphqjlvdwp") {
-            alert(`Arrived Successfully`);
-            fetch(`http://192.168.196.186:5000/on`)
+            fetch(`${nodeMCUIP}/on`)
                 .then((response) => {
-                    // console.log(response);
+                    // Handle the response as needed
                 })
                 .catch((error) => {
-                    // console.error(error);
+                    // Handle errors
                 });
         }
 
+        setShowAlert(true);
+    };
 
+    const closeAlert = () => {
+        setShowAlert(false);
+        setScanned(false);
     };
 
     if (hasPermission === null) {
@@ -68,12 +99,7 @@ export default function QRScan({ navigation }) {
     }
 
     return (
-        <View
-            style={{
-                flex: 1,
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-            }}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
             <BarCodeScanner
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
                 style={[StyleSheet.absoluteFillObject, styles.container]}>
@@ -86,59 +112,96 @@ export default function QRScan({ navigation }) {
                     Cancel
                 </Text>
             </BarCodeScanner>
-            {scanned && <TouchableOpacity onPress={() => setScanned(false)} style={styles.appButtonContainer}>
-                <Text style={styles.appButtonText}>Tap to Scan Again</Text>
-            </TouchableOpacity>}
+            {scanned && (
+                <TouchableOpacity onPress={() => setScanned(false)} style={styles.appButtonContainer}>
+                    <Text style={styles.appButtonText}>Tap to Scan Again</Text>
+                </TouchableOpacity>
+            )}
+            <CustomAlert
+                isVisible={showAlert}
+                title={alertData.title}
+                message={alertData.message}
+                onClose={closeAlert}
+                icon={alertData.icon}
+            />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    // Main container style
     container: {
-        flex: 1, // Take up all available space
-        justifyContent: 'center', // Center children vertically
-        alignItems: 'center', // Center children horizontally
-        paddingTop: Constants.statusBarHeight, // Add padding at the top equal to the status bar height
-        backgroundColor: '#ecf0f1', // Light gray background
-        padding: 8, // Add padding on all sides
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#ecf0f1',
+        padding: 8,
     },
-    // QR code style
     qr: {
-        marginTop: '20%', // Margin at the top
-        marginBottom: '20%', // Margin at the bottom
-        width: qrSize, // Set width
-        height: qrSize, // Set height
+        marginTop: '20%',
+        marginBottom: '20%',
+        width: qrSize,
+        height: qrSize,
     },
-    // Description text style
     description: {
-        fontSize: width * 0.09, // Set font size
-        marginTop: '10%', // Margin at the top
-        textAlign: 'center', // Center text
-        width: '70%', // Set width
-        color: 'white', // White text color
+        fontSize: width * 0.09,
+        marginTop: '10%',
+        textAlign: 'center',
+        width: '70%',
+        color: 'white',
     },
-    // Cancel text style
     cancel: {
-        fontSize: width * 0.05, // Set font size
-        textAlign: 'center', // Center text
-        width: '70%', // Set width
-        color: 'white', // White text color
+        fontSize: width * 0.05,
+        textAlign: 'center',
+        width: '70%',
+        color: 'white',
     },
-    // Button container style
     appButtonContainer: {
-        elevation: 8, // Set elevation
-        backgroundColor: "#009688", // Set background color
-        borderRadius: 10, // Set border radius
-        paddingVertical: 10, // Set vertical padding
-        paddingHorizontal: 12 // Set horizontal padding
+        elevation: 8,
+        backgroundColor: "#009688",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12
     },
-    // Button text style
     appButtonText: {
-        fontSize: 18, // Set font size
-        color: "#fff", // Set text color
-        fontWeight: "bold", // Set font weight
-        alignSelf: "center", // Align text to the center
-        textTransform: "uppercase" // Transform text to uppercase
-    }
+        fontSize: 18,
+        color: "#fff",
+        fontWeight: "bold",
+        alignSelf: "center",
+        textTransform: "uppercase"
+    },
+    // Alert styles
+    alertContainer: {
+        backgroundColor: '#fff', // White background
+        borderRadius: 10,
+        width: '80%',
+        alignSelf: 'center',
+        alignItems: 'center',
+        elevation: 5, // Shadow
+        padding: 20,
+    },
+    alertTitle: {
+        fontSize: 24, // Larger font size for the title
+        fontWeight: 'bold',
+        marginTop: 10,
+        color: '#333', // Darker text color
+    },
+    alertMessage: {
+        fontSize: 18, // Slightly larger font size for the message
+        textAlign: 'center',
+        marginBottom: 15,
+        color: '#555', // Darker text color
+    },
+    alertButton: {
+        backgroundColor: '#3969b7',
+        padding: 15,
+        borderRadius: 8,
+        alignSelf: 'center',
+        marginTop: 20,
+    },
+    alertButtonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
 });

@@ -10,18 +10,23 @@ const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
 const nodeMCUIP = 'http://192.168.126.186:5000';
 
-const CustomAlert = ({ isVisible, title, message, onClose, icon }) => (
-    <Modal isVisible={isVisible}>
-        <View style={styles.alertContainer}>
-            <Icon name={icon || 'info-circle'} size={50} color="#3969b7" />
-            <Text style={styles.alertTitle}>{title}</Text>
-            <Text style={styles.alertMessage}>{message}</Text>
-            <TouchableOpacity onPress={onClose} style={styles.alertButton}>
-                <Text style={styles.alertButtonText}>Tap to Scan Again</Text>
-            </TouchableOpacity>
-        </View>
-    </Modal>
-);
+const CustomAlert = ({ isVisible, title, message, onClose, icon }) => {
+    const alertButtonStyle = title === 'Insufficient Balance' || 'Invalid QR Code' ? { ...styles.alertButton, backgroundColor: '#ff0000' } : styles.alertButton;
+    const iconColor = title === 'Insufficient Balance' || 'Invalid QR Code' ? '#ff0000' : '#3969b7';
+
+    return (
+        <Modal isVisible={isVisible}>
+            <View style={styles.alertContainer}>
+                <Icon name={icon || 'info-circle'} size={50} color={iconColor} />
+                <Text style={styles.alertTitle}>{title}</Text>
+                <Text style={styles.alertMessage}>{message}</Text>
+                <TouchableOpacity onPress={onClose} style={alertButtonStyle}>
+                    <Text style={styles.alertButtonText}>Tap to Scan Again</Text>
+                </TouchableOpacity>
+            </View>
+        </Modal>
+    );
+};
 
 export default function QRScan({ navigation }) {
     const [hasPermission, setHasPermission] = useState(null);
@@ -42,8 +47,8 @@ export default function QRScan({ navigation }) {
         if (data === "ghduqdph_vwdnhvwf") {
             setAlertData({
                 title: 'Departure Successful',
-                message: 'You have successfully departed. Have a safe journey!',
-                icon: 'check-circle',
+                message: 'Passenger has successfully departed!',
+                icon: 'check',
             });
 
             fetch(`${nodeMCUIP}/on`)
@@ -70,8 +75,8 @@ export default function QRScan({ navigation }) {
         } else if (data === "dyuldylphqjlvdwp") {
             setAlertData({
                 title: 'Arrival Confirmed',
-                message: 'You have successfully arrived at your destination. Welcome!',
-                icon: 'info-circle',
+                message: 'Passenger have successfully arrived at the destination. Welcome!',
+                icon: 'check',
             });
 
             fetch(`${nodeMCUIP}/on`)
@@ -80,6 +85,20 @@ export default function QRScan({ navigation }) {
                 })
                 .catch((error) => {
                     // Handle errors
+                });
+        } else {
+            setAlertData({
+                title: 'Invalid QR Code',
+                message: 'Please scan the correct QR code.',
+                icon: 'exclamation-circle',
+            });
+
+            fetch(`${nodeMCUIP}/redLED`)
+                .then((response) => {
+                    // Handle the response as needed
+                })
+                .catch((error) => {
+                    console.error(error);
                 });
         }
 
@@ -114,7 +133,7 @@ export default function QRScan({ navigation }) {
             </BarCodeScanner>
             {scanned && (
                 <TouchableOpacity onPress={() => setScanned(false)} style={styles.appButtonContainer}>
-                    <Text style={styles.appButtonText}>Tap to Scan Again</Text>
+                    <Text style={styles.appButtonText}>intelliTrain</Text>
                 </TouchableOpacity>
             )}
             <CustomAlert
@@ -184,10 +203,11 @@ const styles = StyleSheet.create({
         fontSize: 24, // Larger font size for the title
         fontWeight: 'bold',
         marginTop: 10,
+        marginBottom: 10,
         color: '#333', // Darker text color
     },
     alertMessage: {
-        fontSize: 18, // Slightly larger font size for the message
+        fontSize: 17, // Slightly larger font size for the message
         textAlign: 'center',
         marginBottom: 15,
         color: '#555', // Darker text color

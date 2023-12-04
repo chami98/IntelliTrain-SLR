@@ -44,10 +44,10 @@ export default function AppTabNavigator() {
                 ]
             }}
         >
-            // Define the Home screen
+
             <Tab.Screen name="Home" component={Home}
             />
-            // Define the QRScan screen with initial params
+
             <Tab.Screen
                 name="QRScan"
                 component={QRScan}

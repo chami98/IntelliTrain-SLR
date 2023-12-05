@@ -8,7 +8,7 @@ import Modal from 'react-native-modal';
 
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
-const nodeMCUIP = 'http://192.168.14.186:5000';
+const nodeMCUIP = 'http://192.168.196.186:5000';
 
 const CustomAlert = ({ isVisible, title, message, onClose, icon }) => (
     <Modal isVisible={isVisible}>
@@ -67,7 +67,22 @@ export default function QRScan({ navigation }) {
                 .catch((error) => {
                     console.error(error);
                 });
-        } else if (data === "dyuldylphqjlvdwp") {
+        } else if (data === "suAlDA9MnKT3Mz2oYh93fCDuwY03") {
+            setAlertData({
+                title: 'Departure Successful',
+                message: 'Passenger has successfully departed!',
+                icon: 'check',
+            });
+
+            fetch(`${nodeMCUIP}/on`)
+                .then((response) => {
+                    // Handle the response as needed
+                })
+                .catch((error) => {
+                    // Handle errors
+                });
+        }
+        else if (data === "dyuldylphqjlvdwp") {
             setAlertData({
                 title: 'Arrival Confirmed',
                 message: 'Passenger have successfully arrived at the destination. Welcome!',
@@ -81,7 +96,8 @@ export default function QRScan({ navigation }) {
                 .catch((error) => {
                     // Handle errors
                 });
-        } else {
+        }
+        else {
             setAlertData({
                 title: 'Invalid QR Code',
                 message: 'Please scan the correct QR code.',

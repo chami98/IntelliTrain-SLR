@@ -25,8 +25,8 @@ const TrackTrain = ({ route, navigation }) => {
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AppStackNavigator', {
                 screen: 'MapContainer',
                 params: {
-                    latitude: 6.9800,
-                    longitude: 81.0597,
+                    latitude: 6.820309764187022,
+                    longitude: 79.8911845916804,
                     title: "Udarata Menike / උඩරට මැණිකේ"
                 }
             })}>

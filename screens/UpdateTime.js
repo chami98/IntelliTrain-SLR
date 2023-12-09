@@ -132,7 +132,6 @@ const UpdateTime = () => {
     );
 }
 
-// ... (rest of the code remains the same)
 
 const styles = StyleSheet.create({
     // Main container style
@@ -207,6 +206,6 @@ const styles = StyleSheet.create({
     },
 });
 
-// ... (rest of the code remains the same)
+
 
 export default UpdateTime;

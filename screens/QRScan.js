@@ -8,7 +8,7 @@ import Modal from 'react-native-modal';
 
 const { width } = Dimensions.get('window');
 const qrSize = width * 0.7;
-const nodeMCUIP = 'http://192.168.196.186:5000';
+const nodeMCUIP = 'http://192.168.177.186:5000';
 
 const CustomAlert = ({ isVisible, title, message, onClose, icon }) => (
     <Modal isVisible={isVisible}>
